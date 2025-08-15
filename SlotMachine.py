@@ -3,10 +3,10 @@ import numpy as np
 print("Welcome to SlotMachine Game\n\n".center(100))
 money = 100
 
-#take choice
+#take choice for entry in modes like play,see rules or exit
 choice = int(input("\nEnter your choice: 1: Play, 2: Rules, 3: Exit → "))
 
-#loop for running program continuously until user chooses exit
+#loop for running program continuously until user hit exit
 while choice != 3:  
     if choice == 1:
         if money <= 0:
@@ -25,7 +25,7 @@ while choice != 3:
             ["💎", "💎", "💎"],
             ["7️⃣", "7️⃣", "7️⃣"]
         ])
-        #logic to shuffle only columns
+        #logic to shuffle only columns,
         for col in range(arr.shape[1]):
             np.random.shuffle(arr[:, col])
 
@@ -36,7 +36,7 @@ while choice != 3:
         middle_row = arr[1]
         unique_symbols = np.unique(middle_row)
 
-        #winning calculations
+        #winning money calculations
         winnings = 0
         if len(unique_symbols) == 1:
             winnings = bet * 3  
@@ -75,7 +75,7 @@ while choice != 3:
               "Keep spinning until:\n"
               "You choose to stop.\n"
               "Or your balance runs out.")
-        choice = 1  # after showing rules, go back to play
+        choice = 1  
 
     else:
         print("❌ Invalid choice! Please select 1, 2, or 3.")
